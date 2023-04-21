@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Inter } from "next/font/google";
-import Currency from "@/components/currency";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
-import Weather from "@/components/weather";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
+import Weather from '@/components/weather';
+import Currency from '@/components/currency';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const [showWeather, setShowWeather] = useState(true);
   const [showCurrency, setShowCurrency] = useState(true);
-
-  useEffect(() => {
-    const showWeatherFromStorage = localStorage.getItem("showWeather") === "true";
-    const showCurrencyFromStorage = localStorage.getItem("showCurrency") === "true";
-    setShowWeather(showWeatherFromStorage);
-    setShowCurrency(showCurrencyFromStorage);
-
-  }, []);
 
   return (
     <div>

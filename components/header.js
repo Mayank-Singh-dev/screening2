@@ -20,13 +20,11 @@ const Header = ({ showWeather, setShowWeather, showCurrency, setShowCurrency }) 
 
   const handleToggleWeather = () => {
     const newValue = !showWeather;
-    localStorage.setItem("showWeather", newValue.toString());
     setShowWeather(newValue);
   };
   
   const handleToggleCurrency = () => {
     const newValue = !showCurrency;
-    localStorage.setItem("showCurrency", newValue.toString());
     setShowCurrency(newValue);
   };
   const handleScrollToTop = () => {
