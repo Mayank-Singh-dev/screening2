@@ -17,18 +17,7 @@ export default function Home() {
     setShowWeather(showWeatherFromStorage);
     setShowCurrency(showCurrencyFromStorage);
 
-    const handleBeforeUnload = () => {
-      localStorage.setItem("showWeather", showWeatherFromStorage.toString());
-      localStorage.setItem("showCurrency", showCurrencyFromStorage.toString());
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
   }, []);
-
-  
 
   return (
     <div>
