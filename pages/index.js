@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import Weather from '@/components/weather';
@@ -9,8 +9,23 @@ import Footer from '@/components/footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  // const [showWeather, setShowWeather] = useState(true);
+  // const [showCurrency, setShowCurrency] = useState(true);
   const [showWeather, setShowWeather] = useState(true);
   const [showCurrency, setShowCurrency] = useState(true);
+
+  useEffect(() => {
+    // Load the saved state from local storage when the component mounts
+    const savedShowWeather = localStorage.getItem('showWeather');
+    if (savedShowWeather !== null) {
+      setShowWeather(JSON.parse(savedShowWeather));
+    }
+
+    const savedShowCurrency = localStorage.getItem('showCurrency');
+    if (savedShowCurrency !== null) {
+      setShowCurrency(JSON.parse(savedShowCurrency));
+    }
+  }, []);
 
   return (
     <div>

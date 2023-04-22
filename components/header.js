@@ -18,15 +18,19 @@ const Header = ({ showWeather, setShowWeather, showCurrency, setShowCurrency }) 
     };
   }, [menuRef]);
 
-  const handleToggleWeather = () => {
-    const newValue = !showWeather;
-    setShowWeather(newValue);
+  const handleToggleWeather = (event) => {
+    const value = event.target.checked;
+    setShowWeather(value);
+    localStorage.setItem('showWeather', JSON.stringify(value));
   };
-  
-  const handleToggleCurrency = () => {
-    const newValue = !showCurrency;
-    setShowCurrency(newValue);
+
+  const handleToggleCurrency = (event) => {
+    const value = event.target.checked;
+    setShowCurrency(value);
+    localStorage.setItem('showCurrency', JSON.stringify(value));
   };
+
+
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
